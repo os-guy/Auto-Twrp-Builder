@@ -1,7 +1,7 @@
 # Auto-TWRP Builder
 
 <p align="center">
-  <img src="https://twrp.me/images/twrp-logo.png" alt="TWRP Logo" width="300"/>
+  <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2F2HtVAF5zfNMlmKhF0QYqCSr1rsstB1btNfdKl7WvGTcZkOSKCYNxdXwsSizx9VhiPg&f=1&nofb=1&ipt=c33edfdd0c12b6cfced60dd33e929765fd14e1820a6a1df4936755d09086fcdf" alt="TWRP Logo" width="300"/>
 </p>
 
 <h2 align="center">Build TWRP for your phone on GitHub with just one click by uploading your recovery!</h2>
