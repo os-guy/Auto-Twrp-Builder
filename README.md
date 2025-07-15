@@ -6,6 +6,9 @@
 
 <h2 align="center">Build TWRP for your phone on GitHub with just one click by uploading your recovery!</h2>
 
+> [!IMPORTANT]
+> This tool includes OLD packages that currently doesn't exist on the repositories. They'll be updated later.
+
 > [!NOTE]
 > This tool supports most Android devices and automatically generates a device tree based on your recovery image.
 
