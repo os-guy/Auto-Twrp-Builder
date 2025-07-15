@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       IMG_URL:
-        description: 'IMG_ URL'
+        description: 'Recovery Image URL'
         required: true
         default: 'https://github.com/KoCleo/Auto-Twrp-Builder/raw/master/recovery.img'
       MANIFEST_URL:
@@ -22,14 +22,15 @@ on:
 
 jobs:
   build:
-    if: github.event.repository.owner.id == github.event.sender.id
-    runs-on: ubuntu-20.04
+    # Removed the owner check to allow anyone to run the workflow
+    runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
     - name: Display Run Parameters
       run: |
         echo "::group::User Environment Variables"
+        echo "Image URL: ${{ github.event.inputs.IMG_URL }}"
         echo "Manifest URL: ${{ github.event.inputs.MANIFEST_URL }}"
         echo "Manifest Branch: ${{ github.event.inputs.MANIFEST_BRANCH }}"
         echo "Build Target: ${{ github.event.inputs.BUILD_TARGET }}.img"
@@ -75,8 +76,8 @@ jobs:
         mkdir workspace
         cd workspace
         echo "workspace-folder=$(pwd)" >> $GITHUB_OUTPUT
-        git config --global user.name "azwhikaru"
-        git config --global user.email "azwhikaru+37921907@github.com"
+        git config --global user.name "${{ github.actor }}"
+        git config --global user.email "${{ github.actor }}@users.noreply.github.com"
         repo init --depth=1 -u ${{ github.event.inputs.MANIFEST_URL }} -b ${{ github.event.inputs.MANIFEST_BRANCH }}
       id: pwd
 
@@ -117,7 +118,6 @@ jobs:
         sudo apt -y install python
         sudo rm -rf /usr/bin/python
         sudo ln -s /usr/bin/python2 /usr/bin/python
-        # sudo ln -s /usr/bin/python3 /usr/bin/python3
       continue-on-error: true
 
     - name: Building recovery
